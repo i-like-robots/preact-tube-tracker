@@ -41,7 +41,7 @@ export function formatQueryString (props) {
   const queryString = []
 
   for (const prop in props) {
-    if (props.hasOwnProperty(prop)) {
+    if (props.hasOwnProperty(prop) && props[prop]!=null) {
       queryString.push(`${prop}=${props[prop]}`)
     }
   }
