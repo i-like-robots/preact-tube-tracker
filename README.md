@@ -15,5 +15,5 @@ cp .env.example .env && .env
 npm install
 
 # Build client-side code and run dev server
-npm run build && npm run dev
+npm run build && npm start
 ```
