@@ -2,6 +2,7 @@
   "name": "preact-tube-tracker",
   "private": true,
   "scripts": {
+    "prestart": "npm run build",
     "start": "node index.js",
     "dev": "env $(cat .env) nodemon index.js",
     "build-styles": "node-sass src/client/styles.scss public/bundle.css --output-style compressed --source-map true",
