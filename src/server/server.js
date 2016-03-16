@@ -18,7 +18,15 @@ app.get('/api/:line/:station', (req, res) => {
 
 // Serve initial HTML
 app.get('/', (req, res) => {
-  api(req.query.line, req.query.station)
+  const { line, station } = req.query
+  const prefetch = line && station ? api(line, station) : Promise.resolve()
+
+  prefetch
+    .catch((err) => {
+      if (err.status !== 400) {
+        throw err
+      }
+    })
     .then((data) => {
       return bootstrap(data).then((html) => {
         res.send(html)
