@@ -9,8 +9,8 @@ export default class TubeTracker extends Component {
     super(props)
 
     this.state = {
-      line: props.initialData.request.lineCode || null,
-      station: props.initialData.request.stationCode || null
+      line: props.initialData ? props.initialData.request.lineCode : null,
+      station: props.initialData ? props.initialData.request.stationCode : null
     }
   }
 
