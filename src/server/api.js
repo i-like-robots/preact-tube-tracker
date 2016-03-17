@@ -8,12 +8,7 @@ export default (line, station) => {
 
     // validate request
     if (!isStationOnLine(line, station, networkData)) {
-      const err = new Error()
-
-      err.message = 'Invalid station and/or line combination'
-      err.status = 400
-
-      return reject(err)
+      return resolve('');
     }
 
     // Go fetch any lines that share the platform
@@ -32,7 +27,7 @@ export default (line, station) => {
           stationName: networkData.stations[station]
         },
         platforms:
-          data
+          data && data
             .sort((a, b) => {
               return a.timeToStation - b.timeToStation
             })
