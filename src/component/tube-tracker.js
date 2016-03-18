@@ -30,7 +30,9 @@ export default class TubeTracker extends Component {
   componentWillUpdate (newProps, newState) {
     // When the state changes push a query string so users can bookmark
     // or share the link to a chosen departure board.
-    window.history.pushState(null, null, formatQueryString(newState))
+    if (this.state.line !== newState.line || this.state.station !== newState.station) {
+      window.history.pushState(null, null, formatQueryString(newState))
+    }
   }
 
   componentDidMount () {

@@ -41,7 +41,7 @@ export function formatQueryString (props) {
   const queryString = []
 
   for (const prop in props) {
-    if (props.hasOwnProperty(prop)) {
+    if (props.hasOwnProperty(prop) && props[prop] !== null) {
       queryString.push(`${prop}=${props[prop]}`)
     }
   }
@@ -53,7 +53,7 @@ export function queryStringProperty (queryString, prop) {
   const pairs = queryString.replace(/^\?/, '').replace(/\/$/, '').split('&')
   const props = {}
 
-  pairs.forEach(function (pair) {
+  pairs.forEach((pair) => {
     let [ a, b ] = pair.split('=')
     props[a] = b
   })

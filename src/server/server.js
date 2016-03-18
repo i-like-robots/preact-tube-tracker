@@ -19,7 +19,7 @@ app.get('/api/:line/:station', (req, res) => {
 // Serve initial HTML
 app.get('/', (req, res) => {
   const { line, station } = req.query
-  const prefetch = line && station ? api(line, station) : Promise.resolve()
+  const prefetch = line && station ? api(line, station) : Promise.resolve(null)
 
   prefetch
     .catch((err) => {
