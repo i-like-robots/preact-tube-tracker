@@ -47,8 +47,6 @@ export default class Predictions extends Component {
   }
 
   resetPoll (line, station) {
-    this.fetchPredictions(line, station)
-
     if (this.poll) {
       clearInterval(this.poll)
     }
@@ -57,8 +55,10 @@ export default class Predictions extends Component {
   }
 
   componentDidMount () {
-    if (this.props.line && this.props.station) {
-      this.resetPoll(this.props.line, this.props.station)
+    const { line, station } = this.props
+
+    if (line && station) {
+      this.resetPoll(line, station)
     }
   }
 
@@ -67,13 +67,16 @@ export default class Predictions extends Component {
   }
 
   componentWillReceiveProps (newProps) {
-    this.resetPoll(newProps.line, newProps.station)
+    const { line, station } = newProps
+
+    this.fetchPredictions(line, station)
+    this.resetPoll(line, station)
   }
 
   shouldComponentUpdate (newProps, newState) {
     // Only update when line/station changes or new predictions load otherwise the
     // loading notice will be displayed when refreshing current predictions.
-    return this.props !== newProps || this.state.predictionData !== newState.predictionData
+    return newState.status !== 'loading' || this.props !== newProps
   }
 
   render () {
