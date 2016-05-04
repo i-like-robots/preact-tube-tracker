@@ -8,11 +8,13 @@
     "build": "parallelshell 'npm run build-styles' 'npm run build-scripts'",
     "watch-styles": "npm run build-styles -- --watch",
     "watch-scripts": "npm run build-scripts -- --watch",
-    "watch": "parallelshell 'npm run watch-styles' 'npm run watch-scripts'"
+    "watch": "parallelshell 'npm run watch-styles' 'npm run watch-scripts'",
+    "package": "babel -d packaged -D src --ignore src/client && cp -r ./{public,package.json,Procfile} ./packaged"
   },
   "author": "Matt Hinchliffe",
   "license": "GPL",
   "devDependencies": {
+    "babel-cli": "^6.8.0",
     "babel-core": "~6.7.7",
     "babel-loader": "~6.2.4",
     "babel-plugin-transform-react-jsx": "^6.8.0",
@@ -31,5 +33,11 @@
   },
   "engines": {
     "node": ">= 5.8.0"
+  },
+  "babel": {
+    "presets": ["es2015-node5"],
+    "plugins": [
+      [ "transform-react-jsx", { "pragma": "h" } ]
+    ]
   }
 }

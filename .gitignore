@@ -17,8 +17,11 @@ coverage
 # node-waf configuration
 .lock-wscript
 
-# Compiled source
+# Compiled client side code
 public/
+
+# Packaged code for deployment
+packaged/
 
 # Dependency directory
 node_modules
