@@ -1,3 +1,5 @@
+const webpack = require('webpack')
+
 module.exports = {
   entry: [
     './src/client/bootstrap.js'
@@ -9,12 +11,17 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.json$/, loader: 'json' },
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] }
+      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'], query: {
+        presets: 'es2015-webpack',
+        plugins: [ ['transform-react-jsx', { 'pragma': 'h' }] ]
+      } }
     ]
   },
-  devtool: 'source-map',
-  devServer: {
-    port: process.env.PORT || 8080,
-    contentBase: './app'
-  }
+  plugins: [
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    })
+  ],
+  devtool: 'source-map'
 }
