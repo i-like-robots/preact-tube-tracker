@@ -9,10 +9,10 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      { test: /\.json$/, loader: 'json' },
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel'], query: {
-        presets: 'es2015-webpack',
+    rules: [
+      { test: /\.json$/, loader: 'json-loader' },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: {
+        presets: [ 'es2015' ],
         plugins: [ ['transform-react-jsx', { 'pragma': 'h' }] ]
       } }
     ]
