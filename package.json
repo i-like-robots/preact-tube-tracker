@@ -14,25 +14,25 @@
   "author": "Matt Hinchliffe",
   "license": "GPL",
   "devDependencies": {
-    "babel-cli": "^6.8.0",
-    "babel-core": "~6.7.7",
-    "babel-loader": "~6.2.4",
-    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-cli": "^6.23.0",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-plugin-transform-react-jsx": "^6.23.0",
     "babel-preset-node6": "^11.0.0",
-    "babel-preset-es2015-webpack": "^6.4.1",
+    "babel-preset-es2015-webpack": "^6.4.3",
     "json-loader": "^0.5.4",
-    "node-sass": "^3.10.1",
-    "nodemon": "^1.9.1",
+    "node-sass": "^4.5.0",
+    "nodemon": "^1.11.0",
     "parallelshell": "^2.0.0",
-    "webpack": "^2.1.0-beta"
+    "webpack": "^2.2.1"
   },
   "dependencies": {
-    "express": "^4.14.0",
-    "preact": "^6.3.0",
-    "preact-render-to-string": "^3.2.1"
+    "express": "^4.14.1",
+    "preact": "^7.2.0",
+    "preact-render-to-string": "^3.6.0"
   },
   "engines": {
-    "node": ">= 6.6.0"
+    "node": ">= 6.10.0"
   },
   "babel": {
     "presets": ["node6"],
