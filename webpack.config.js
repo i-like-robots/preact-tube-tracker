@@ -12,10 +12,7 @@ module.exports = {
   module: {
     rules: [
       { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader', options: {
-        presets: [ 'es2015' ],
-        plugins: [ ['transform-react-jsx', { 'pragma': 'h' }] ]
-      } }
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   },
   plugins: [
