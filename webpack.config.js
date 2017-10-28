@@ -1,11 +1,12 @@
+const path = require('path');
 const webpack = require('webpack')
 
 module.exports = {
   entry: [
-    './src/client/bootstrap.js'
+    path.join(__dirname, 'src/client/bootstrap.js')
   ],
   output: {
-    path: './public',
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
   module: {
