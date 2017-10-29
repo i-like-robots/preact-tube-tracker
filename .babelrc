@@ -1,12 +1,26 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "node": "current",
-        "browsers": ["last 2 versions"]
-      }
-    }]
-  ],
+  "env": {
+    "server": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": true
+          },
+          "debug": true
+        }]
+      ]
+    },
+    "browser": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "browsers": ["> 2%"]
+          },
+          "debug": true
+        }]
+      ]
+    }
+  },
   "plugins": [
     ["transform-react-jsx", {
       "pragma": "h"

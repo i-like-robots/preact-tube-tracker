@@ -2,14 +2,14 @@
   "name": "preact-tube-tracker",
   "private": true,
   "scripts": {
-    "start": "env $(cat .env) nodemon index.js",
+    "start": "BABEL_ENV=server; env $(cat .env) nodemon index.js",
     "build-styles": "node-sass src/client/styles.scss public/bundle.css --output-style compressed --source-map true",
-    "build-scripts": "webpack -p",
+    "build-scripts": "BABEL_ENV=browser; webpack -p",
     "build": "parallelshell 'npm run build-styles' 'npm run build-scripts'",
     "watch-styles": "npm run build-styles -- --watch",
     "watch-scripts": "npm run build-scripts -- --watch",
     "watch": "parallelshell 'npm run watch-styles' 'npm run watch-scripts'",
-    "package": "babel -d packaged -D src --ignore src/client && cp -r ./{public,package.json,Procfile} ./packaged"
+    "package": "BABEL_ENV=server; babel -d packaged -D src --ignore src/client && cp -r ./{public,package.json,Procfile} ./packaged"
   },
   "author": "Matt Hinchliffe",
   "license": "GPL",
